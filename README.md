@@ -18,3 +18,13 @@ La temática es un estudiante del Instituto Tecnológico y de Estudios Superiore
 6. Encuentro 4
 7. Final
 8. Agradecimientos
+
+### Algortimo
+
+======================INSTRUCCIONES=========================
+print('Instrucciones del juego)
+input('Presiona cualquier tecla para continuar')
+
+============INTRODUCCIÓN Y SELECCION DE NOMBRE==============
+
+print('Lorem')
