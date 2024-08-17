@@ -19,12 +19,33 @@ La temática es un estudiante del Instituto Tecnológico y de Estudios Superiore
 7. Final
 8. Agradecimientos
 
-### Algortimo
+Planeo que el juego sea breve y sencillo. Primero contará con un pequeño texto que explique como será el navegamiento del mismo. Después habrá una pequeña introducción del personaje donde el jugador también podrá elejir su nombre de jugador. El juego constará de cuatro encuentros contra algunos personajes. Finalmente habrá una conclusión y agradecimientos.
 
-======================INSTRUCCIONES=========================
-print('Instrucciones del juego)
-input('Presiona cualquier tecla para continuar')
+### Algortimos
 
-============INTRODUCCIÓN Y SELECCION DE NOMBRE==============
+// Ask for player's name
 
-print('Lorem')
+EO(playerName)
+    // Check if it's a string or force it to be a string
+    // Save the player's name in a varible
+
+    playerName = player_name // This function won't be local
+
+    return print('The librarian takes the credential and reads it.')
+    // Press enter to continue
+    print('"Hmmm, so you are..."')
+    // Press enter to continue
+    print('She hesitates.")
+    // Press enter to continue
+    Print(playerName + '...?')
+    // Press enter to continue
+EF (return)
+
+// Visit a door. The door that progresses the story will always be the third.
+
+EF(door_chosen)
+    if(door_chosen == true) // Check if door has already been visited
+        return print('You have already been here')
+    else if(first_door == false)
+        first_door = true
+        return 
