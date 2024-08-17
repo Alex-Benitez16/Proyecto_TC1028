@@ -22,14 +22,14 @@ La temática es un estudiante del Instituto Tecnológico y de Estudios Superiore
 Planeo que el juego sea breve y sencillo. Primero contará con un pequeño texto que explique como será el navegamiento del mismo. Después habrá una pequeña introducción del personaje donde el jugador también podrá elejir su nombre de jugador. El juego constará de cuatro encuentros contra algunos personajes. Finalmente habrá una conclusión y agradecimientos.
 
 ### Algortimos
-
+```
 // Ask for player's name
 
-EO(playerName)
+EO(player_name)
     // Check if it's a string or force it to be a string
     // Save the player's name in a varible
 
-    playerName = player_name // This function won't be local
+    player_name = player_name // This function won't be local
 
     return print('The librarian takes the credential and reads it.')
     // Press enter to continue
@@ -37,15 +37,35 @@ EO(playerName)
     // Press enter to continue
     print('She hesitates.")
     // Press enter to continue
-    Print(playerName + '...?')
+    Print(player_name + '...?')
     // Press enter to continue
 EF (return)
-
+```
+```
 // Visit a door. The door that progresses the story will always be the third.
 
-EF(door_chosen)
-    if(door_chosen == true) // Check if door has already been visited
-        return print('You have already been here')
-    else if(first_door == false)
-        first_door = true
-        return 
+EO(visited_doors = 0, door_chosen)
+    if(visited_doors == 0) 
+        // If this is the first door visited the print statement will be this
+        visited_doors = visited_doors + 1
+        return print('You have not been here, but, oh surprise, there's nothing here.')
+    else if (visited_doors == 1)
+        // If this is the second door visited then the print statement will change
+        visited_doors = visited_doors + 1
+        return print('You peek into the room, but you find nothing... again.')
+    else
+        // If it is the third door visited, then it will be the right door
+         return print('You enter a door again, and to your surprise you find something!')
+EF(return)
+```
+```
+// Encounter with mysterious manuscript
+// Escribir una cita APA con un tiempo límite
+EO(apa, input)
+    print(apa)
+    si logra escribirla en menosd de 60 segundos
+         return print('Great, you did it!)
+    Si no
+        volver a ejecutar el código de arriba
+EF(return)
+```
