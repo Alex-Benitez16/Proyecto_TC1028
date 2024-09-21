@@ -15,14 +15,14 @@ def print_board(array):
     print("         |         |         \n")
 
 # Actualiza el tablero con los inputs del jugador. Como los arreglos inician en 0 restar 1
-def update_board(array, player):
+def update_board(array, player, row, column):
     array[row - 1][column - 1] = player
 
 # Selección de lugar donde poner la ficha
 def select_square(array):
     # Preguntar al jugador donde
-    a = int(input("\nChoose column: 1 for left, 2 for middle, 3 for right :")) # a pide un valor de 1 o 2 o 3
-    b = int(input("\nChoose row: 1 for top, 2 for middle, 3 for bottom :")) # b pide un valor de 1 o 2 o 3
+    a = int(input("\nChoose column: 1 for left, 2 for middle, 3 for right: ")) # a pide un valor de 1 o 2 o 3
+    b = int(input("\nChoose row: 1 for top, 2 for middle, 3 for bottom: ")) # b pide un valor de 1 o 2 o 3
     
     # Si a o b no estan dentro de los valores deseados, repetir input hasta que lo esten
     while((a != 1 and a != 2 and a !=3 ) or (b != 1 and b != 2 and b != 3)):
@@ -46,6 +46,27 @@ def select_square(array):
 
 # TODO encontrar una forma de que al meter valores que no sean int el programa no crashee
 
+def check_win_condition(array, player):
+    if(array[0][0] == array[0][1] == array[0][2] == player):
+        return True
+    elif(array[1][0] == array[1][1] == array[1][2] == player):
+        return True
+    elif(array[2][0] == array[2][1] == array[2][2] == player):
+        return True
+    elif(array[0][0] == array[1][0] == array[2][0] == player):
+        return True
+    elif(array[0][1] == array[1][1] == array[2][1] == player):
+        return True
+    elif(array[0][2] == array[1][2] == array[2][2] == player):
+        return True
+    elif(array[0][0] == array[1][1] == array[2][2] == player):
+        return True
+    elif(array[0][2] == array[1][1] == array[2][0] == player):
+        return True
+    else:
+        return False
+
+
 #  ========== VARIABLES ========== #
 
 # Matriz de tokens?/fichas? Inicializado con espacios en blanco
@@ -58,6 +79,9 @@ tokens = [
 player1_token = 'O'
 player2_token = 'X'
 
+player1_has_won = False
+player2_has_won = False
+
 round_number = 1
 
 # ========= JUEGO ========== #
@@ -66,15 +90,17 @@ round_number = 1
 print("\n\nDear player, I BEG you, do not enter non-integer values.\n\n")
 
 # While temporal en lo que descubro como hacer una win condition
-while(round_number < 10):
+while(round_number < 10 and not player1_has_won and not player2_has_won):
     if(round_number % 2 != 0):
         column, row = select_square(tokens)
-        update_board(tokens, player1_token)
+        update_board(tokens, player1_token, row, column)
     else:
         column, row = select_square(tokens)
-        update_board(tokens, player2_token)
+        update_board(tokens, player2_token, row, column)
 
     print_board(tokens)
 
+    player1_has_won = check_win_condition(tokens, player1_token)
+    player2_has_won = check_win_condition(tokens, player2_token)
+
     round_number += 1
-    
