@@ -18,7 +18,6 @@ import random
 ===============================================
 '''
 
-
 '''
 ============ FUNCIONES DE LA TERMINAL ===============
 '''
@@ -460,8 +459,8 @@ def print_score(score, player1, player2):
         print_cool(f"Yeah, no motivational message here.")
 
     print_cool(f"Current score: "
-               f"{player1}: {score["player1"]}, "
-               f"{player2}: {score["player2"]}")
+               f'{player1}: {score["player1"]}, '
+               f'{player2}: {score["player2"]}')
 
 def print_winner(player1, player2, score):
     '''
