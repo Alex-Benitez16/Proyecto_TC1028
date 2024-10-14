@@ -114,7 +114,7 @@ def print_instructions(player1, player2):
     print_cool(f"Alright, alright. {player1}, {player2}, " 
                "I need to make something very, very clear.")
     print_cool(f"This ain't no regular tic-tac-toe. No, no, no.")
-    print_cool(f"Have it known that thi IS WAR.")
+    print_cool(f"Have it known that this IS WAR.")
     print_cool(f"Make no mistake. Your honor is on the line. "
                "Your next 50 years WILL be detirmined by this one game.")
     print_cool(f"Do you understand now?    Good.")
@@ -280,13 +280,16 @@ def get_valid_input(message):
     Devuelve: el valor permitido
     '''
     while True:
-        print_cool(message, False)
-        value = int(input())
+        try:
+            print_cool(message, False)
+            value = int(input())
 
-        if(value in [1, 2, 3]):
-            return value
-        else:
-            print_cool("\nInvalid entry. Please enter 1, 2 or 3.")
+            if(value in [1, 2, 3]):
+                return value
+            else:
+                print_cool("\nInvalid entry. Please enter 1, 2 or 3.")
+        except ValueError:
+            print_cool("\nInvalid entry. Please enter a number.")
 
 def check_unoccupied_square(array, row, column):
     '''
@@ -302,7 +305,7 @@ def check_unoccupied_square(array, row, column):
         print_cool("\nSquare already occupied. "
         "Please choose a different square.")
         column = get_valid_input("\nChoose column: ")
-        row = get_valid_input("\nChoose row")
+        row = get_valid_input("\nChoose row: ")
 
     return column, row
 
